@@ -13,8 +13,9 @@ class ProductoForm(forms.ModelForm):
         fields = "__all__"
 
 class PedidoForm(forms.ModelForm):
-    producto = forms.ModelChoiceField(queryset=Producto.objects.filter(stock=True, empty_label="Seleccione un producto"))
+    cliente = forms.ModelChoiceField(queryset=Cliente.objects.all(), empty_label="Seleccione un cliente")
+    producto = forms.ModelChoiceField(queryset=Producto.objects.filter(stock=True), empty_label="Seleccione un producto")
     class Meta:
         model = Pedido
         fields = "__all__"
-        widgets = {"fecha entrega": forms.DateInput(attrs={"type": "date"})}
+        widgets = {"fecha entrega": forms.DateTimeInput(attrs={"type": "datetime-local"})}
