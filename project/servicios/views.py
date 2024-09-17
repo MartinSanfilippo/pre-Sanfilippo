@@ -11,8 +11,12 @@ def cliente_list(request):
     return render(request, "servicios/cliente_list.html", context)
 
 def producto_list(request):
-    query = Producto.objects.all()
-    context = {"object_list": query}
+    q = request.GET.get('q')
+    if q:
+        query = Producto.objects.filter(nombre__icontains=q)
+    else:
+        query = Producto.objects.all()
+    context = {'object_list': query}
     return render(request, "servicios/producto_list.html", context)
 
 def pedido_list(request):
@@ -49,3 +53,8 @@ def producto_create(request):
             form.save()
             return redirect("producto_list")
     return render(request, "servicios/producto_create.html", {"form": form})
+
+def producto_detail(request, pk: int):
+    query = Producto.objects.get(id=pk)
+    context = {'object': query}
+    return render(request, "servicios/producto_detail.html", context)
