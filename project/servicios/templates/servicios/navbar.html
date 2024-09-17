@@ -1,4 +1,18 @@
-<button><a href="{% url 'index' %}">Home</a></button>
-<button><a href="{% url 'cliente_list' %}">Clientes</a></button>
-<button><a href="{% url 'producto_list' %}">Productos</a></button>
-<button><a href="{% url 'pedido_list' %}">Pedidos</a></button>
+<div style="margin-bottom: 2%;
+            display: flex;
+            justify-content: center;
+            gap: 1%;
+            background-color:burlywood">
+    <a href="{% url 'index' %}">
+        <button>Home</button>
+    </a>
+    <a href="{% url 'cliente_list' %}">
+        <button>Clientes</button>
+    </a>
+    <a href="{% url 'producto_list' %}">
+        <button>Productos</button>
+    </a>
+    <a href="{% url 'pedido_list' %}">
+        <button>Pedidos</button>
+    </a>
+</div>

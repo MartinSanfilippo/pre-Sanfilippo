@@ -58,3 +58,4 @@ def producto_detail(request, pk: int):
     query = Producto.objects.get(id=pk)
     context = {'object': query}
     return render(request, "servicios/producto_detail.html", context)
+
