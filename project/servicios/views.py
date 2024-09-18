@@ -1,9 +1,11 @@
 from django.shortcuts import render, redirect
+from django.contrib.auth.mixins import LoginRequiredMixin
+from django.contrib.auth.models import User
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
 from django.urls import reverse_lazy
 from .models import Cliente, Pedido, Producto
 from .forms import ClienteForm, PedidoForm, ProductoForm
-from .forms import CustomUserCreationForm
+from .forms import CustomUserCreationForm, UserProfileForm
 
 def index(request):
     return render(request, "servicios/index.html")
@@ -107,3 +109,12 @@ class Registro(CreateView):
     form_class = CustomUserCreationForm
     template_name = "registro.html"
     success_url = reverse_lazy('login')
+
+class Profile(LoginRequiredMixin, UpdateView):
+    model = User
+    form_class = UserProfileForm
+    template_name = "profile.html"
+    success_url = reverse_lazy('index')
+
+    def get_object(self):
+        return self.request.user

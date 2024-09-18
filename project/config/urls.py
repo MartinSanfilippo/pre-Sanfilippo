@@ -36,5 +36,6 @@ urlpatterns = [
     path("producto/update/<int:pk>", login_required(views.producto_update), name="producto_update"),
     path("producto/delete/<int:pk>", login_required(views.producto_delete), name="producto_delete"),
     path('registro',views.Registro.as_view(template_name='servicios/registro.html'), name = "registro"),
+    path('profile', views.Profile.as_view(template_name='servicios/profile.html'), name = 'profile'),
     
 ]

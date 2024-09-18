@@ -16,9 +16,9 @@
     <a href="{% url 'pedido_list' %}">
         <button>Pedidos</button>
     </a>
-    <button>
-        <a href="#"> {{ user.username }} </a>
-    </button>
+    <a href="{% url 'profile' %}">
+        <button>{{ user.username }}</button>
+    </a>
     <form action="{% url 'logout' %}" method="post">
         {% csrf_token %}
         <button type="submit">Logout</button>
