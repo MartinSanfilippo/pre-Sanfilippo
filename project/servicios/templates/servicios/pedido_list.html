@@ -6,7 +6,7 @@ Lista de Pedidos:
 
 {% block main %}
     <button>
-        <a href=" {% url 'pedido_create' %}">Crear Registro:</a>
+        <a href=" {% url 'pedido_create' %}" style="color: white;">Crear Registro:</a>
     </button>
     {% for object in object_list %}
         <p> {{ object }}
@@ -16,6 +16,6 @@ Lista de Pedidos:
     <p>No hay Registros.</p>
     {% endfor %}
     <button>
-        <a href="{% url 'index' %}">Volver</a>
+        <a href="{% url 'index' %}" style="color: white;">Volver</a>
     </button>
 {% endblock main %}

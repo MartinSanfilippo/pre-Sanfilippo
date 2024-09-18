@@ -10,7 +10,7 @@ Lista de Productos:
         <button type="submit">Buscar</button>
     </form>
     <button>
-        <a href="{% url 'producto_create' %}">Crear Registro:</a>
+        <a href="{% url 'producto_create' %}" style="color: white;">Crear Registro:</a>
     </button>
     <ul>
     {% for object in object_list %}
@@ -25,6 +25,6 @@ Lista de Productos:
     {% endfor %}
     </ul>
     <button>
-        <a href="{% url 'index' %}">Volver</a>
+        <a href="{% url 'index' %}" style="color: white;">Volver</a>
     </button>
 {% endblock main %}

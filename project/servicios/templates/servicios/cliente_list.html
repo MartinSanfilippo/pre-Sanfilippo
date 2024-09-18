@@ -10,7 +10,7 @@ Clientes Registrados:
         <button type="submit">Buscar</button>
     </form>
     <button>
-        <a href="{% url 'cliente_create' %}">Crear Registro:</a>
+        <a href="{% url 'cliente_create' %}" style="color: white;">Crear Registro:</a>
     </button>
     {% for object in object_list %}
         <p> {{ object.apellido}} {{object.nombre}} ({{object.cuit}})</p>
@@ -18,6 +18,6 @@ Clientes Registrados:
         <p>No hay Registros.</p>
     {% endfor %}
     <button>
-        <a href="{% url 'index' %}">Volver</a>
+        <a href="{% url 'index' %}" style="color: white";>Volver</a>
     </button>
 {% endblock main %}
