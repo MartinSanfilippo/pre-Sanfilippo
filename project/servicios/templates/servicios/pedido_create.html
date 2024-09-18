@@ -10,4 +10,7 @@ Formulario de Pedido:
     {{ form.as_p }}
     <button type="submit">Enviar</button>
 </form>
+<button>
+    <a href="{% url 'pedido_list' %}">Volver</a>
+</button>
 {% endblock main %}

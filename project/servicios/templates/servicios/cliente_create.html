@@ -10,4 +10,7 @@ Formulario de Registro de Cliente:
     {{ form.as_p }}
     <button type="submit">Enviar</button>
 </form>
+<button>
+    <a href="{% url 'cliente_list' %}">Volver</a>
+</button>
 {% endblock main %}

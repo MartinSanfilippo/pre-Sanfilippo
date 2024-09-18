@@ -21,11 +21,13 @@ from servicios import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.index, name="index"),
-    path("cliente/list/", views.cliente_list, name="cliente_list"),
-    path("pedido/list/", views.pedido_list, name="pedido_list"),
-    path("producto/list/", views.producto_list, name="producto_list"),
+    path("cliente/list/", views.ClienteList.as_view(), name="cliente_list"),
+    path("pedido/list/", views.PedidoList.as_view(), name="pedido_list"),
+    path("producto/list/", views.ProductoList.as_view(), name="producto_list"),
     path("cliente/create/", views.cliente_create, name="cliente_create"),
     path("pedido/create/", views.pedido_create, name="pedido_create"),
     path("producto/create/", views.producto_create, name="producto_create"),
     path("producto/detail/<int:pk>", views.producto_detail, name="producto_detail"),
+    path("producto/update/<int:pk>", views.producto_update, name="producto_update"),
+    path("producto/delete/<int:pk>", views.producto_delete, name="producto_delete"),
 ]

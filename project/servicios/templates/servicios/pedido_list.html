@@ -15,4 +15,7 @@ Lista de Pedidos:
     {% empty %}
     <p>No hay Registros.</p>
     {% endfor %}
+    <button>
+        <a href="{% url 'index' %}">Volver</a>
+    </button>
 {% endblock main %}
