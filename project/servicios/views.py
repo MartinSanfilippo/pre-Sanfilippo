@@ -1,12 +1,12 @@
 from django.shortcuts import render, redirect
 from django.views.generic import CreateView, DeleteView, DetailView, ListView, UpdateView
-
+from django.urls import reverse_lazy
 from .models import Cliente, Pedido, Producto
 from .forms import ClienteForm, PedidoForm, ProductoForm
+from .forms import CustomUserCreationForm
 
 def index(request):
     return render(request, "servicios/index.html")
-
 
 def cliente_list(request):
     q = request.GET.get('q')
@@ -101,3 +101,9 @@ def producto_delete(request, pk: int):
         query.delete()
         return redirect("producto_list")
     return render(request, "servicios/producto_confirm_delete.html", {'object': query})
+
+
+class Registro(CreateView):
+    form_class = CustomUserCreationForm
+    template_name = "registro.html"
+    success_url = reverse_lazy('login')
