@@ -23,6 +23,7 @@ from servicios import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('login', LoginView.as_view(template_name='servicios/login.html'), name='login'),
+    path('logout', LogoutView.as_view(template_name='servicios/logout.html'), name='logout'),
     path('', views.index, name="index"),
     path("cliente/list/", views.ClienteList.as_view(), name="cliente_list"),
     path("pedido/list/", views.PedidoList.as_view(), name="pedido_list"),
