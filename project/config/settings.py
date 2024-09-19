@@ -27,9 +27,9 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-9ybe5nx_9o)f&s9yngjhrso_sme&0e=n$7nv-+xy)a84u#s_al'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['tinchosanfi.pythonanywhere.com']
 
 
 # Application definition
@@ -129,3 +129,10 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 LOGIN_URL = reverse_lazy('login')
 LOGIN_REDIRECT_URL = reverse_lazy('login')
+
+STATIC_ROOT = BASE_DIR / 'static'
+
+try:
+    from .settings_dev import *
+except ModuleNotFoundError:
+    pass
